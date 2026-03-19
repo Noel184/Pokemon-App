@@ -24,6 +24,12 @@ app.listen(3000, ()=> {
 })
 
 const Pokemon = mongoose.model('Pokemon', {name: String, type:String, level:Number, nature:String});
+
+app.get('/api/pokemon', async(req,res)=> {
+    const pokemon = await Pokemon.find();
+    res.send(pokemon);console.log("Fetched all pokemon");
+});
+
 app.post('/api/pokemon', async (req, res) => {
     const pokemon = new Pokemon (req.body);
     await pokemon.save();
