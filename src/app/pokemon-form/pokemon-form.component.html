@@ -8,6 +8,7 @@
     <button type="submit"[disabled]="!pokemonForm.valid">Save to Database</button>
 </form>
 
+<h2>Gary's Winning Team</h2>
 @for (p of pokemonService.pokemonList(); track p.id) {
     <div class="card">
         <h3> {{p.name}}(Lv:{{p.level}})</h3>
